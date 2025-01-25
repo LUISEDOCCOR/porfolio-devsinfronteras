@@ -1,0 +1,19 @@
+---
+import CardBase from "../components/UI/CardBase.astro";
+import Section from "../components/UI/Section.astro";
+const posts = await Astro.glob("../pages/blog/*.md");
+---
+
+<Section title="Blog">
+    <ul class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {
+            posts.map((post) => (
+                <CardBase
+                    title={post.frontmatter.title}
+                    content={post.frontmatter.desc}
+                    href={post.url || ""}
+                />
+            ))
+        }
+    </ul>
+</Section>
