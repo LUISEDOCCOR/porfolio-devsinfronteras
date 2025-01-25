@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+
+const links = [
+    {
+        href: "https://github.com/LUISEDOCCOR",
+        icon: "github",
+    },
+    {
+        href: "https://mx.linkedin.com/in/luiseduardoocegueda",
+        icon: "linkedin",
+    },
+    {
+        href: "mailto:luiseduardoocegueda@gmail.com",
+        icon: "email",
+    },
+    {
+        href: "/@devsinfronteras",
+        icon: "earth",
+    },
+];
+---
+
+<header class="grid grid-cols-3">
+    <section class="col-span-3 space-y-3 text-neutral-600 md:col-span-2">
+        <h1 class="text-2xl font-bold text-black">Luis Eduardo</h1>
+        <p class="jetbrains-mono text-md">
+            +2 años de experiencia. Desarrollador Front-end y Back-End.
+            Programador autodidacta.
+        </p>
+        <div class="jetbrains-mono flex items-center gap-1 text-sm">
+            <Icon name="mdi:map-outline" size={20} />
+            <h2>México</h2>
+        </div>
+        <ul class="flex items-center gap-3">
+            {
+                links.map((link) => (
+                    <li class="rounded-md border border-neutral-600 p-1 transition-colors hover:bg-neutral-300">
+                        <a href={link.href}>
+                            <Icon
+                                name={`mdi:${link.icon}`}
+                                class="stroke-neutral-700 stroke-0"
+                                size={20}
+                            />
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+    <section class="hidden items-center justify-end md:flex">
+        <!-- <img
+        class="w-36 rounded-md"
+        src="https://avatars.githubusercontent.com/u/110699874?v=4"
+        alt="Luis Eduardo Cortes"
+      /> -->
+    </section>
+</header>

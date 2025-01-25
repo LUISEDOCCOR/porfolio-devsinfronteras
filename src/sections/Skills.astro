@@ -1,0 +1,27 @@
+---
+import Tag from "../components/UI/Tag.astro";
+import Section from "../components/UI/Section.astro";
+const skills = [
+    "React",
+    "Flask",
+    "JavaScript/TypeScript",
+    "html",
+    "css",
+    "tailwindcss",
+    "Go",
+    "Python",
+    "Astro",
+];
+---
+
+<Section title="Skills">
+    <ul class="flex flex-wrap justify-start gap-1 md:gap-2">
+        {
+            skills.map((skill) => (
+                <li>
+                    <Tag label={skill} />
+                </li>
+            ))
+        }
+    </ul>
+</Section>

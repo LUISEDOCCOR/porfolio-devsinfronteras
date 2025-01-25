@@ -1,0 +1,72 @@
+---
+import Section from "../components/UI/Section.astro";
+import Tag from "../components/UI/Tag.astro";
+import CardBase from "../components/UI/CardBase.astro";
+const projects = [
+    {
+        title: "Edutask",
+        content:
+            "Gestiona tus tareas diarias de manera eficiente, establece recordatorios y realiza un seguimiento de tu progreso.",
+        href: "https://app-production-3784.up.railway.app/task/",
+        skills: ["tailwindcss", "python", "flask", "sqlite", "jinja"],
+    },
+    {
+        title: "EasyLiker",
+        content:
+            "EasyLinker es una herramienta innovadora para la creación de páginas web simples y funcionales de manera rápida y eficiente. ",
+        href: "/",
+        skills: [
+            "tailwindcss",
+            "vite",
+            "react",
+            "express",
+            "vercel-SDK",
+            "prisma",
+        ],
+        isWorking: true,
+    },
+    {
+        title: "ColorKit",
+        content:
+            "Creador de paletas de colores para tailwindcss, en la que crea 11 colores, pero como usuario puedes escoger 2 colores y siempre te dará 11 colores que combinan entre ellos.",
+        href: "https://www.colorkit.xyz/",
+        skills: ["tailwindcss", "react", "typescript"],
+    },
+    {
+        title: "DevSinFronteras",
+        content:
+            "En este proyecto, comparto mi conocimiento con la comunidad a través de videos en TikTok, Instagram y Facebook, con el objetivo de promover el aprendizaje y la difusión del desarrollo web.",
+        href: "/@devsinfronteras",
+        skills: ["comunicación", "redes-sociales", "creatividad"],
+    },
+];
+---
+
+<Section title="Proyectos">
+    <ul class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {
+            projects.map((project) => (
+                <CardBase
+                    title={project.title}
+                    href={project.href}
+                    content={project.content}
+                >
+                    <ul class="flex flex-wrap justify-start gap-1">
+                        {project.isWorking && (
+                            <Tag
+                                bg="bg-green-600"
+                                class="text-white"
+                                label="en construcción..."
+                            />
+                        )}
+                        {project.skills.map((skill) => (
+                            <li>
+                                <Tag label={skill} />
+                            </li>
+                        ))}
+                    </ul>
+                </CardBase>
+            ))
+        }
+    </ul>
+</Section>
